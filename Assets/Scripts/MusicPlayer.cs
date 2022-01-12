@@ -9,11 +9,10 @@ public class MusicPlayer : MonoBehaviour
         SetUpSingleton();
     }
 
-    private void SetUpSingleton()
+    void SetUpSingleton()
     {
         if (FindObjectsOfType(GetType()).Length > 1)
             Destroy(gameObject);
-        else
-            DontDestroyOnLoad(gameObject);
+        else DontDestroyOnLoad(gameObject);
     }
 }

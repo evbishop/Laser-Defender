@@ -22,11 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] float projectileFiringPeriod = 0.5f;
 
     Coroutine firingCoroutine;
-
-    float xMin;
-    float xMax;
-    float yMin;
-    float yMax;
+    float xMin, xMax, yMin, yMax;
 
     void Start()
     {
@@ -51,7 +47,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Fire()
+    void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
             firingCoroutine = StartCoroutine(FireContinuosly());
@@ -59,7 +55,7 @@ public class Player : MonoBehaviour
             StopCoroutine(firingCoroutine);
     }
 
-    private void Move()
+    void Move()
     {
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
@@ -68,7 +64,7 @@ public class Player : MonoBehaviour
         transform.position = new Vector2(newXPos, newYPos);
     }
 
-    private void SetUpMoveBoundaries()
+    void SetUpMoveBoundaries()
     {
         Camera gameCamera = Camera.main;
         xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
@@ -77,7 +73,7 @@ public class Player : MonoBehaviour
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer) return;
@@ -86,7 +82,7 @@ public class Player : MonoBehaviour
         if (health <= 0) Die();
     }
 
-    private void Die()
+    void Die()
     {
         Destroy(gameObject);
         GameObject exsplosion = Instantiate(deathVFX, transform.position, transform.rotation);
@@ -95,8 +91,5 @@ public class Player : MonoBehaviour
         FindObjectOfType<Level>().LoadGameOver();
     }
 
-    public int GetHealth()
-    {
-        return health;
-    }
+    public int GetHealth() => health;
 }

@@ -55,12 +55,10 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
-        if (!damageDealer)
-            return;
+        if (!damageDealer) return;
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
-        if (health <= 0)
-            Die();
+        if (health <= 0) Die();
     }
 
     private void Die()

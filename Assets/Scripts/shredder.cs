@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shredder : MonoBehaviour
+public class Shredder : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);
     }

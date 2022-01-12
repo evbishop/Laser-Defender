@@ -7,7 +7,7 @@ public class GameSession : MonoBehaviour
 {
     int score = 0;
 
-    private void Awake()
+    void Awake()
     {
         SetUpSingleton();
     }
@@ -17,14 +17,10 @@ public class GameSession : MonoBehaviour
         int numberOfGameSessions = FindObjectsOfType<GameSession>().Length;
         if (numberOfGameSessions > 1)
             Destroy(gameObject);
-        else
-            DontDestroyOnLoad(gameObject);
+        else DontDestroyOnLoad(gameObject);
     }
 
-    public int GetScore()
-    {
-        return score;
-    }
+    public int GetScore() => score;
 
     public void AddToScore(int scoreValue)
     {
