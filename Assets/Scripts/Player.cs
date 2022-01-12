@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     Coroutine firingCoroutine;
     float xMin, xMax, yMin, yMax;
 
+    public int Health { get { return health; } }
+
     void Start()
     {
         SetUpMoveBoundaries();
@@ -33,6 +35,32 @@ public class Player : MonoBehaviour
     {
         Move();
         Fire();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) return;
+        health -= damageDealer.Damage;
+        damageDealer.Hit();
+        if (health <= 0) Die();
+    }
+
+    void Move()
+    {
+        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
+        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+        var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
+        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
+        transform.position = new Vector2(newXPos, newYPos);
+    }
+
+    void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+            firingCoroutine = StartCoroutine(FireContinuosly());
+        if (Input.GetButtonUp("Fire1"))
+            StopCoroutine(firingCoroutine);
     }
 
     IEnumerator FireContinuosly()
@@ -47,23 +75,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Fire()
-    {
-        if (Input.GetButtonDown("Fire1"))
-            firingCoroutine = StartCoroutine(FireContinuosly());
-        if (Input.GetButtonUp("Fire1"))
-            StopCoroutine(firingCoroutine);
-    }
-
-    void Move()
-    {
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-        var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
-        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
-        transform.position = new Vector2(newXPos, newYPos);
-    }
-
     void SetUpMoveBoundaries()
     {
         Camera gameCamera = Camera.main;
@@ -71,15 +82,6 @@ public class Player : MonoBehaviour
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
-        if (!damageDealer) return;
-        health -= damageDealer.GetDamage();
-        damageDealer.Hit();
-        if (health <= 0) Die();
     }
 
     void Die()
@@ -90,6 +92,4 @@ public class Player : MonoBehaviour
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
         FindObjectOfType<LevelLoader>().LoadGameOver();
     }
-
-    public int GetHealth() => health;
 }

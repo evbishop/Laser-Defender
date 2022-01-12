@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class EnemyPathing : MonoBehaviour
 {
-    WaveConfig waveConfig;
     List<Transform> waypoints;
     int waypointIndex = 0;
 
+    public WaveConfig WaveConfiguration { get; set; }
+
     void Start()
     {
-        waypoints = waveConfig.GetWaypoints();
+        waypoints = WaveConfiguration.Waypoints;
         transform.position = waypoints[waypointIndex].transform.position;
     }
 
@@ -20,28 +21,19 @@ public class EnemyPathing : MonoBehaviour
         Move();
     }
 
-    public void SetWaveConfig(WaveConfig waveConfig)
-    {
-        this.waveConfig = waveConfig;
-    }
-
-    private void Move()
+    void Move()
     {
         if (waypointIndex <= waypoints.Count - 1)
         {
             var targetPosition = waypoints[waypointIndex].transform.position;
-            var movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime;
-            transform.position = UnityEngine.Vector2.MoveTowards
-                (transform.position, targetPosition, movementThisFrame);
+            transform.position = UnityEngine.Vector2.MoveTowards(
+                transform.position,
+                targetPosition,
+                WaveConfiguration.MoveSpeed * Time.deltaTime);
 
             if (transform.position == targetPosition)
-            {
                 waypointIndex++;
-            }
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        else Destroy(gameObject);
     }
 }

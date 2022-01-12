@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
         CountDownAndShoot();
     }
 
-    private void CountDownAndShoot()
+    void CountDownAndShoot()
     {
         shotCounter -= Time.deltaTime;
         if (shotCounter <= 0f)
@@ -44,26 +44,25 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Fire()
+    void Fire()
     {
-        GameObject laser = Instantiate(laserPrefab, transform.position,
-                Quaternion.identity);
+        GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
         AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootSoundVolume);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        DamageDealer damageDealer = other.GetComponent<DamageDealer>();
         if (!damageDealer) return;
-        health -= damageDealer.GetDamage();
+        health -= damageDealer.Damage;
         damageDealer.Hit();
         if (health <= 0) Die();
     }
 
-    private void Die()
+    void Die()
     {
-        FindObjectOfType<GameSession>().AddToScore(scoreValue); 
+        FindObjectOfType<GameSession>().Score += scoreValue; 
         Destroy(gameObject);
         GameObject exsplosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(exsplosion, durationOfExsplosion);

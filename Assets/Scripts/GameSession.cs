@@ -5,26 +5,19 @@ using UnityEngine;
 
 public class GameSession : MonoBehaviour
 {
-    int score = 0;
+    public int Score { get; set; }
 
     void Awake()
     {
         SetUpSingleton();
     }
 
-    private void SetUpSingleton()
+    void SetUpSingleton()
     {
         int numberOfGameSessions = FindObjectsOfType<GameSession>().Length;
         if (numberOfGameSessions > 1)
             Destroy(gameObject);
         else DontDestroyOnLoad(gameObject);
-    }
-
-    public int GetScore() => score;
-
-    public void AddToScore(int scoreValue)
-    {
-        score += scoreValue;
     }
 
     public void ResetGame()
