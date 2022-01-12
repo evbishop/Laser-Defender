@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 1f;
     [SerializeField] int health = 200;
     [SerializeField] GameObject deathVFX = null;
-    [SerializeField] float durationOfExsplosion = 1f;
+    [SerializeField] float durationOfExplosion = 1f;
     [SerializeField] AudioClip deathSound = null;
     [SerializeField] [Range(0, 1)] float deathSoundVolume = 0.75f;
     [SerializeField] AudioClip shootSound = null;
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        DamageDealer damageDealer = other.GetComponent<DamageDealer>();
         if (!damageDealer) return;
         health -= damageDealer.Damage;
         damageDealer.Hit();
@@ -67,8 +67,7 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-            GameObject laser = Instantiate(laserPrefab, transform.position,
-                Quaternion.identity);
+            GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootSoundVolume);
             yield return new WaitForSeconds(projectileFiringPeriod);
@@ -77,18 +76,18 @@ public class Player : MonoBehaviour
 
     void SetUpMoveBoundaries()
     {
-        Camera gameCamera = Camera.main;
-        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
-        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
-        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
-        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
+        Camera cam = Camera.main;
+        xMin = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
+        xMax = cam.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
+        yMin = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
+        yMax = cam.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 
     void Die()
     {
         Destroy(gameObject);
-        GameObject exsplosion = Instantiate(deathVFX, transform.position, transform.rotation);
-        Destroy(exsplosion, durationOfExsplosion);
+        GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        Destroy(explosion, durationOfExplosion);
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
         FindObjectOfType<LevelLoader>().LoadGameOver();
     }
