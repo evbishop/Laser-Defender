@@ -14,8 +14,7 @@ public class GameSession : MonoBehaviour
 
     void SetUpSingleton()
     {
-        int numberOfGameSessions = FindObjectsOfType<GameSession>().Length;
-        if (numberOfGameSessions > 1)
+        if (FindObjectsOfType(GetType()).Length > 1)
             Destroy(gameObject);
         else DontDestroyOnLoad(gameObject);
     }
