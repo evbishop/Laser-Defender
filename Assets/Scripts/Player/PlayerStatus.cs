@@ -11,9 +11,18 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] AudioClip deathSound = null;
     [SerializeField] [Range(0, 1)] float deathSoundVolume = 0.75f;
 
-    public int Health { get { return health; } }
-
+    public event Action<int> OnPlayerHealthUpdated;
     public static event Action OnPlayerDeath;
+
+    public int Health 
+    { 
+        get { return health; } 
+        private set 
+        { 
+            health = value;
+            OnPlayerHealthUpdated?.Invoke(health);
+        }
+    }
 
     void Start()
     {
@@ -37,8 +46,8 @@ public class PlayerStatus : MonoBehaviour
     {
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
         if (!damageDealer) return;
-        health -= damageDealer.Damage;
+        Health -= damageDealer.Damage;
         damageDealer.Hit();
-        if (health <= 0) OnPlayerDeath?.Invoke();
+        if (Health <= 0) OnPlayerDeath?.Invoke();
     }
 }

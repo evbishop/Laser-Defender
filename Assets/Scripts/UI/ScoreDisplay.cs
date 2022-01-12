@@ -2,20 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    TextMeshProUGUI scoreText;
-    ScoreHander scoreHandler;
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] ScoreHander scoreHandler;
 
     void Start()
     {
-        scoreText = GetComponent<TextMeshProUGUI>();
-        scoreHandler = FindObjectOfType<ScoreHander>();
+        scoreHandler.OnScoreUpdated += UpdateScore;
     }
 
-    void Update()
+    void OnDestroy()
     {
-        scoreText.text = scoreHandler.Score.ToString();
+        scoreHandler.OnScoreUpdated -= UpdateScore;
+    }
+
+    void UpdateScore(int newScore)
+    {
+        scoreText.text = newScore.ToString();
     }
 }

@@ -5,17 +5,21 @@ using TMPro;
 
 public class HealthDisplay : MonoBehaviour
 {
-    TextMeshProUGUI healthText;
-    PlayerStatus player;
+    [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] PlayerStatus player;
 
     void Start()
     {
-        healthText = GetComponent<TextMeshProUGUI>();
-        player = FindObjectOfType<PlayerStatus>();
+        player.OnPlayerHealthUpdated += UpdateHealthText;
     }
 
-    void Update()
+    void OnDestroy()
     {
-        healthText.text = player.Health.ToString();
+        player.OnPlayerHealthUpdated -= UpdateHealthText;
+    }
+
+    void UpdateHealthText(int newHealth)
+    {
+        healthText.text = newHealth.ToString();
     }
 }

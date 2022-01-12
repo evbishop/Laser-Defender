@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip shootSound = null;
     [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.25f;
 
+    public static event Action<int> OnScoreIncreased;
+
     void Start()
     {
         shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
@@ -62,7 +64,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        FindObjectOfType<ScoreHander>().Score += scoreValue; 
+        OnScoreIncreased?.Invoke(scoreValue); 
         Destroy(gameObject);
         GameObject exsplosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(exsplosion, durationOfExsplosion);
