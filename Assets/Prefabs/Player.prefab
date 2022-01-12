@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3175389053057824934}
   - component: {fileID: 3175389053057824937}
   - component: {fileID: 3408694493639247536}
-  - component: {fileID: 3175389053057824935}
   - component: {fileID: 1069767474789167532}
   - component: {fileID: 7904925159590639337}
+  - component: {fileID: 7701895441242528096}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -134,24 +134,6 @@ PolygonCollider2D:
       - {x: 0.1582593, y: -0.2957077}
       - {x: 0.33709106, y: -0.33547115}
       - {x: 0.37535045, y: -0.34547234}
---- !u!114 &3175389053057824935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3175389053057824936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbcdf498276dc5c48a9b1d5b090fe1e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 200
-  deathVFX: {fileID: 7241685821040972260, guid: f66e122b30a84e246975d1dcbe0d7fff,
-    type: 3}
-  durationOfExplosion: 1
-  deathSound: {fileID: 8300000, guid: 7208f2fa53d18d444a309af22cb3c4ca, type: 3}
-  deathSoundVolume: 1
 --- !u!114 &1069767474789167532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +166,21 @@ MonoBehaviour:
   shootSoundVolume: 0.2
   projectileSpeed: 30
   projectileFiringPeriod: 0.1
+--- !u!114 &7701895441242528096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175389053057824936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e544515149067d49bc76b863abbb781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  deathVFX: {fileID: 7241685821040972260, guid: f66e122b30a84e246975d1dcbe0d7fff,
+    type: 3}
+  durationOfExplosion: 1
+  deathSound: {fileID: 8300000, guid: 3512a9f7cf1d6ca43b72b370016fdfae, type: 3}
+  deathSoundVolume: 1

@@ -9,12 +9,12 @@ public class LevelLoader : MonoBehaviour
 
     void Start()
     {
-        Player.OnPlayerDeath += LoadGameOver;
+        PlayerStatus.OnPlayerDeath += LoadGameOver;
     }
 
     void OnDestroy()
     {
-        Player.OnPlayerDeath -= LoadGameOver;
+        PlayerStatus.OnPlayerDeath -= LoadGameOver;
     }
 
     public void LoadStartMenu()

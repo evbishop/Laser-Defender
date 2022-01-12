@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerStatus : MonoBehaviour
 {
     [SerializeField] int health = 200;
     [SerializeField] GameObject deathVFX = null;
@@ -25,6 +25,14 @@ public class Player : MonoBehaviour
         OnPlayerDeath -= Die;
     }
 
+    void Die()
+    {
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        Destroy(explosion, durationOfExplosion);
+        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
@@ -32,13 +40,5 @@ public class Player : MonoBehaviour
         health -= damageDealer.Damage;
         damageDealer.Hit();
         if (health <= 0) OnPlayerDeath?.Invoke();
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
-        GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
-        Destroy(explosion, durationOfExplosion);
-        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
     }
 }
