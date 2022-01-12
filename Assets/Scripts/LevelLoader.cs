@@ -9,7 +9,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadStartMenu()
     {
-        FindObjectOfType<GameSession>().ResetGame();
+        FindObjectOfType<ScoreHander>().ResetScore();
         SceneManager.LoadScene("Menu");
     }
 
@@ -20,7 +20,7 @@ public class LevelLoader : MonoBehaviour
 
     public void ReloadMainGame()
     {
-        FindObjectOfType<GameSession>().ResetGame();
+        FindObjectOfType<ScoreHander>().ResetScore();
         LoadMainGame();
     }
 

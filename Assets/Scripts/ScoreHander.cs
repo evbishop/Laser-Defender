@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSession : Singleton
+public class ScoreHander : Singleton
 {
     public int Score { get; set; }
 
-    public void ResetGame()
+    public void ResetScore()
     {
         Destroy(gameObject);
     }

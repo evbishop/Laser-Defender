@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        FindObjectOfType<GameSession>().Score += scoreValue; 
+        FindObjectOfType<ScoreHander>().Score += scoreValue; 
         Destroy(gameObject);
         GameObject exsplosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(exsplosion, durationOfExsplosion);
