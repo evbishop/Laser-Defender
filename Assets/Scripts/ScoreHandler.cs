@@ -3,10 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreHander : Singleton
+public class ScoreHandler : Singleton
 {
-    int score;
     public event Action<int> OnScoreUpdated;
+
+    int score;
+    public int Score 
+    { 
+        get { return score; }
+        private set
+        { 
+            score = value;
+            OnScoreUpdated?.Invoke(score);
+        }
+    }
     
     void Start()
     {
@@ -27,7 +37,6 @@ public class ScoreHander : Singleton
 
     void RaiseScore(int raise)
     {
-        score += raise;
-        OnScoreUpdated?.Invoke(score);
+        Score += raise;
     }
 }

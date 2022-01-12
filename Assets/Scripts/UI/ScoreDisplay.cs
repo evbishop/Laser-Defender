@@ -7,11 +7,13 @@ using System;
 public class ScoreDisplay : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] ScoreHander scoreHandler;
+    ScoreHandler scoreHandler;
 
     void Start()
     {
+        scoreHandler = FindObjectOfType<ScoreHandler>();
         scoreHandler.OnScoreUpdated += UpdateScore;
+        UpdateScore(scoreHandler.Score);
     }
 
     void OnDestroy()

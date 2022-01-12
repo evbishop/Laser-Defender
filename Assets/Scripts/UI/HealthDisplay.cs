@@ -11,6 +11,7 @@ public class HealthDisplay : MonoBehaviour
     void Start()
     {
         player.OnPlayerHealthUpdated += UpdateHealthText;
+        UpdateHealthText(player.Health);
     }
 
     void OnDestroy()
