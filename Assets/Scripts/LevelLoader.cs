@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] float delayInSeconds = 1f;
+
+    public static event Action OnResetScore;
 
     void Start()
     {
@@ -19,7 +22,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadStartMenu()
     {
-        FindObjectOfType<ScoreHander>().ResetScore();
+        OnResetScore?.Invoke();
         SceneManager.LoadScene("Menu");
     }
 
@@ -30,7 +33,7 @@ public class LevelLoader : MonoBehaviour
 
     public void ReloadMainGame()
     {
-        FindObjectOfType<ScoreHander>().ResetScore();
+        OnResetScore?.Invoke();
         LoadMainGame();
     }
 

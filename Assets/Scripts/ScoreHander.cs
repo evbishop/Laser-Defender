@@ -7,7 +7,17 @@ public class ScoreHander : Singleton
 {
     public int Score { get; set; }
 
-    public void ResetScore()
+    void Start()
+    {
+        LevelLoader.OnResetScore += ResetScore;
+    }
+
+    void OnDestroy()
+    {
+        LevelLoader.OnResetScore -= ResetScore;
+    }
+
+    void ResetScore()
     {
         Destroy(gameObject);
     }
