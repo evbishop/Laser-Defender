@@ -6,8 +6,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Player")]
-    [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float padding = 1f;
     [SerializeField] int health = 200;
     [SerializeField] GameObject deathVFX = null;
     [SerializeField] float durationOfExplosion = 1f;
@@ -20,9 +18,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject laserPrefab = null;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFiringPeriod = 0.5f;
-
+    
     Coroutine firingCoroutine;
-    float xMin, xMax, yMin, yMax;
 
     public int Health { get { return health; } }
 
@@ -30,7 +27,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        SetUpMoveBoundaries();
         OnPlayerDeath += Die;
     }
 
@@ -41,7 +37,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Move();
         Fire();
     }
 
@@ -52,15 +47,6 @@ public class Player : MonoBehaviour
         health -= damageDealer.Damage;
         damageDealer.Hit();
         if (health <= 0) OnPlayerDeath?.Invoke();
-    }
-
-    void Move()
-    {
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-        var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
-        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
-        transform.position = new Vector2(newXPos, newYPos);
     }
 
     void Fire()
@@ -80,15 +66,6 @@ public class Player : MonoBehaviour
             AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootSoundVolume);
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
-    }
-
-    void SetUpMoveBoundaries()
-    {
-        Camera cam = Camera.main;
-        xMin = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
-        xMax = cam.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
-        yMin = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
-        yMax = cam.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 
     void Die()

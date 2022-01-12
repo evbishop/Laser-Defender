@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3175389053057824934}
   - component: {fileID: 3175389053057824937}
-  - component: {fileID: 3175389053057824935}
   - component: {fileID: 3408694493639247536}
+  - component: {fileID: 3175389053057824935}
+  - component: {fileID: 1069767474789167532}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -48,6 +49,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,32 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3175389053057824935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3175389053057824936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbcdf498276dc5c48a9b1d5b090fe1e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  padding: 1
-  health: 200
-  deathVFX: {fileID: 7241685821040972260, guid: f66e122b30a84e246975d1dcbe0d7fff,
-    type: 3}
-  durationOfExsplosion: 1
-  deathSound: {fileID: 8300000, guid: 7208f2fa53d18d444a309af22cb3c4ca, type: 3}
-  deathSoundVolume: 1
-  shootSound: {fileID: 8300000, guid: 51a9b405deed0cf449810459c4e03ed7, type: 3}
-  shootSoundVolume: 0.1
-  laserPrefab: {fileID: 5092316262606069304, guid: e566e20a5add6204692f00767f15c588,
-    type: 3}
-  projectileSpeed: 30
-  projectileFiringPeriod: 0.1
 --- !u!60 &3408694493639247536
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -157,3 +133,41 @@ PolygonCollider2D:
       - {x: 0.1582593, y: -0.2957077}
       - {x: 0.33709106, y: -0.33547115}
       - {x: 0.37535045, y: -0.34547234}
+--- !u!114 &3175389053057824935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175389053057824936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcdf498276dc5c48a9b1d5b090fe1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  deathVFX: {fileID: 7241685821040972260, guid: f66e122b30a84e246975d1dcbe0d7fff,
+    type: 3}
+  durationOfExplosion: 1
+  deathSound: {fileID: 8300000, guid: 7208f2fa53d18d444a309af22cb3c4ca, type: 3}
+  deathSoundVolume: 1
+  shootSound: {fileID: 8300000, guid: 51a9b405deed0cf449810459c4e03ed7, type: 3}
+  shootSoundVolume: 0.1
+  laserPrefab: {fileID: 5092316262606069304, guid: e566e20a5add6204692f00767f15c588,
+    type: 3}
+  projectileSpeed: 30
+  projectileFiringPeriod: 0.1
+--- !u!114 &1069767474789167532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175389053057824936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca27526103ca21245a86a40bf25da32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  padding: 1
