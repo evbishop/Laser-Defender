@@ -18,8 +18,8 @@ public class PlayerStatus : MonoBehaviour
     { 
         get { return health; } 
         private set 
-        { 
-            health = value;
+        {
+            health = Mathf.Max(0, value);
             OnPlayerHealthUpdated?.Invoke(health);
         }
     }
