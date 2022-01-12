@@ -26,9 +26,17 @@ public class Player : MonoBehaviour
 
     public int Health { get { return health; } }
 
+    public static event Action OnPlayerDeath;
+
     void Start()
     {
         SetUpMoveBoundaries();
+        OnPlayerDeath += Die;
+    }
+
+    void OnDestroy()
+    {
+        OnPlayerDeath -= Die;
     }
 
     void Update()
@@ -43,7 +51,7 @@ public class Player : MonoBehaviour
         if (!damageDealer) return;
         health -= damageDealer.Damage;
         damageDealer.Hit();
-        if (health <= 0) Die();
+        if (health <= 0) OnPlayerDeath?.Invoke();
     }
 
     void Move()
@@ -89,6 +97,5 @@ public class Player : MonoBehaviour
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, durationOfExplosion);
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
-        FindObjectOfType<LevelLoader>().LoadGameOver();
     }
 }

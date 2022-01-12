@@ -7,6 +7,16 @@ public class LevelLoader : MonoBehaviour
 {
     [SerializeField] float delayInSeconds = 1f;
 
+    void Start()
+    {
+        Player.OnPlayerDeath += LoadGameOver;
+    }
+
+    void OnDestroy()
+    {
+        Player.OnPlayerDeath -= LoadGameOver;
+    }
+
     public void LoadStartMenu()
     {
         FindObjectOfType<ScoreHander>().ResetScore();
@@ -24,7 +34,7 @@ public class LevelLoader : MonoBehaviour
         LoadMainGame();
     }
 
-    public void LoadGameOver()
+    void LoadGameOver()
     {
         StartCoroutine(DelayedLoading());
     }
