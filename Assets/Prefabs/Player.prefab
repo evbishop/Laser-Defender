@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3408694493639247536}
   - component: {fileID: 3175389053057824935}
   - component: {fileID: 1069767474789167532}
+  - component: {fileID: 7904925159590639337}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -151,12 +152,6 @@ MonoBehaviour:
   durationOfExplosion: 1
   deathSound: {fileID: 8300000, guid: 7208f2fa53d18d444a309af22cb3c4ca, type: 3}
   deathSoundVolume: 1
-  shootSound: {fileID: 8300000, guid: 51a9b405deed0cf449810459c4e03ed7, type: 3}
-  shootSoundVolume: 0.1
-  laserPrefab: {fileID: 5092316262606069304, guid: e566e20a5add6204692f00767f15c588,
-    type: 3}
-  projectileSpeed: 30
-  projectileFiringPeriod: 0.1
 --- !u!114 &1069767474789167532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,3 +166,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   padding: 1
+--- !u!114 &7904925159590639337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175389053057824936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0b2ae7d640f6b42af751c52cb8f650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 5092316262606069304, guid: e566e20a5add6204692f00767f15c588,
+    type: 3}
+  shootSound: {fileID: 8300000, guid: 51a9b405deed0cf449810459c4e03ed7, type: 3}
+  shootSoundVolume: 0.2
+  projectileSpeed: 30
+  projectileFiringPeriod: 0.1
