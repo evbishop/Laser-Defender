@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3669243903586726983}
   - component: {fileID: 2613268384688232427}
   m_Layer: 0
-  m_Name: Level
+  m_Name: Level Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3669243903586726980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 318.4912, y: 497.15173, z: -78.9518}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba8dee3901f3ee42b23a56d505996e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayInSeconds: 1

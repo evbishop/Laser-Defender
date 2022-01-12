@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Level : MonoBehaviour
+public class LevelLoader : MonoBehaviour
 {
     [SerializeField] float delayInSeconds = 1f;
 

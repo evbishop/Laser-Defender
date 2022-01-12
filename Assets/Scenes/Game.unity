@@ -933,7 +933,7 @@ PrefabInstance:
     - target: {fileID: 3669243903586726980, guid: 383a944ed3639744fbc5c44df53f136c,
         type: 3}
       propertyPath: m_Name
-      value: Level
+      value: Level Loader
       objectReference: {fileID: 0}
     - target: {fileID: 3669243903586726983, guid: 383a944ed3639744fbc5c44df53f136c,
         type: 3}
@@ -943,17 +943,17 @@ PrefabInstance:
     - target: {fileID: 3669243903586726983, guid: 383a944ed3639744fbc5c44df53f136c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 318.4912
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3669243903586726983, guid: 383a944ed3639744fbc5c44df53f136c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 497.15173
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3669243903586726983, guid: 383a944ed3639744fbc5c44df53f136c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -78.9518
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3669243903586726983, guid: 383a944ed3639744fbc5c44df53f136c,
         type: 3}
