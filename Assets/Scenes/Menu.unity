@@ -687,38 +687,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 636627670, guid: f0cceedb31e742c47887cf01ea767bab, type: 3}
-      propertyPath: m_fontSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 636627670, guid: f0cceedb31e742c47887cf01ea767bab, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 780597911, guid: f0cceedb31e742c47887cf01ea767bab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 546529831}
-    - target: {fileID: 780597912, guid: f0cceedb31e742c47887cf01ea767bab, type: 3}
-      propertyPath: m_fontSize
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 780597912, guid: f0cceedb31e742c47887cf01ea767bab, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 968091973, guid: f0cceedb31e742c47887cf01ea767bab, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 433
-      objectReference: {fileID: 0}
-    - target: {fileID: 968091974, guid: f0cceedb31e742c47887cf01ea767bab, type: 3}
-      propertyPath: m_fontSize
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 968091974, guid: f0cceedb31e742c47887cf01ea767bab, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 1039520640, guid: f0cceedb31e742c47887cf01ea767bab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -826,11 +798,6 @@ PrefabInstance:
     - target: {fileID: 8494633068043676513, guid: f0cceedb31e742c47887cf01ea767bab,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8494633068043676515, guid: f0cceedb31e742c47887cf01ea767bab,
-        type: 3}
-      propertyPath: m_UiScaleMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8494633068043676525, guid: f0cceedb31e742c47887cf01ea767bab,
