@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 279012473790751965}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -279.4, y: -67.5}
-  m_SizeDelta: {x: 511.11975, y: 82.02533}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 800.6, y: -67.5}
+  m_SizeDelta: {x: 511.11975, y: 82.02539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1477597028
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0123456
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 398b4f94bcc497f45ae887dce6ba0339, type: 2}
   m_sharedMaterial: {fileID: 4508482942147720140, guid: 398b4f94bcc497f45ae887dce6ba0339,
@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1477597027}
-  scoreHandler: {fileID: 0}
 --- !u!1 &279012473790751953
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,10 +283,10 @@ RectTransform:
   m_Father: {fileID: 279012473790751965}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 289.47998, y: -67.5}
-  m_SizeDelta: {x: 511.11975, y: 82.02533}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -790.52, y: -67.5}
+  m_SizeDelta: {x: 511.11975, y: 82.02539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4829402629207561274
 CanvasRenderer:

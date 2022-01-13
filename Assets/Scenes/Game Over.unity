@@ -687,28 +687,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1290660771, guid: 082d896997300f14abcac7c3742098dd, type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 328225788818410531}
-    - target: {fileID: 1290660773, guid: 082d896997300f14abcac7c3742098dd, type: 3}
-      propertyPath: m_text
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1290660773, guid: 082d896997300f14abcac7c3742098dd, type: 3}
-      propertyPath: m_fontSize
-      value: 72
-      objectReference: {fileID: 0}
     - target: {fileID: 328225788105209525, guid: 082d896997300f14abcac7c3742098dd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 518592918}
-    - target: {fileID: 328225788226103028, guid: 082d896997300f14abcac7c3742098dd,
-        type: 3}
-      propertyPath: m_text
-      value: Not bad
-      objectReference: {fileID: 0}
     - target: {fileID: 328225788359942050, guid: 082d896997300f14abcac7c3742098dd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -826,15 +809,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 082d896997300f14abcac7c3742098dd, type: 3}
---- !u!114 &328225788818410531 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1290660773, guid: 082d896997300f14abcac7c3742098dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 328225788818410530}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
