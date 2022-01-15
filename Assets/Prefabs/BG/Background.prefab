@@ -95,4 +95,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundScrollSpeed: 0.02
-  renderer: {fileID: 2870544744659389048}
+  rendererComponent: {fileID: 2870544744659389048}

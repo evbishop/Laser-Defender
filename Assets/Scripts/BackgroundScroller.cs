@@ -5,13 +5,13 @@ using UnityEngine;
 public class BackgroundScroller : MonoBehaviour
 {
     [SerializeField] float backgroundScrollSpeed = 0.02f;
-    [SerializeField] Renderer renderer;
+    [SerializeField] Renderer rendererComponent;
     Material material;
     Vector2 offSet;
 
     void Start()
     {
-        material = renderer.material;
+        material = rendererComponent.material;
         offSet = new Vector2(0f, backgroundScrollSpeed);
     }
 
