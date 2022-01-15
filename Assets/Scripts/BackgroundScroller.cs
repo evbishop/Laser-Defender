@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
-    [SerializeField] float backgroundScrollSpeed = 0.5f;
+    [SerializeField] float backgroundScrollSpeed = 0.02f;
+    [SerializeField] Renderer renderer;
     Material material;
     Vector2 offSet;
 
     void Start()
     {
-        material = GetComponent<Renderer>().material;
+        material = renderer.material;
         offSet = new Vector2(0f, backgroundScrollSpeed);
     }
 
