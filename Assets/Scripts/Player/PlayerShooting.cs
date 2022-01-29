@@ -18,12 +18,12 @@ public class PlayerShooting : MonoBehaviour
     void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
-            firingCoroutine = StartCoroutine(FireContinuosly());
+            firingCoroutine = StartCoroutine(FireContinuously());
         if (Input.GetButtonUp("Fire1"))
             StopCoroutine(firingCoroutine);
     }
 
-    IEnumerator FireContinuosly()
+    IEnumerator FireContinuously()
     {
         while (true)
         {
