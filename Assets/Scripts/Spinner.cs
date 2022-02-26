@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spinner : MonoBehaviour
 {
-    [SerializeField] float speedOfSpin = 360f;
+    [SerializeField] float speedOfSpin = 720f;
 
     void Update()
     {
