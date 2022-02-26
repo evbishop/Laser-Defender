@@ -21,13 +21,13 @@ public class ScoreHandler : Singleton
     void Start()
     {
         LevelLoader.OnResetScore += ResetScore;
-        Enemy.OnScoreIncreased += RaiseScore;
+        EnemyStatus.OnScoreIncreased += RaiseScore;
     }
 
     void OnDestroy()
     {
         LevelLoader.OnResetScore -= ResetScore;
-        Enemy.OnScoreIncreased -= RaiseScore;
+        EnemyStatus.OnScoreIncreased -= RaiseScore;
     }
 
     void ResetScore()
