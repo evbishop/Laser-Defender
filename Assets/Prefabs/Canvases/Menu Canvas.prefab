@@ -316,8 +316,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WebGLSendTransactionExample, Assembly-CSharp
-        m_MethodName: OnSendTransaction
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: LoadMainGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
